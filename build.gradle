@@ -1,0 +1,39 @@
+group 'org.grible'
+version '0.1'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+
+defaultTasks 'clean', 'test'
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    agent
+}
+
+dependencies {
+    compile 'junit:junit:+'
+    compile 'com.codeborne:selenide:+'
+}
+
+tasks.withType(Test) {
+    testTask ->
+        testTask.useJUnit()
+        testTask.ignoreFailures = true
+        testTask.systemProperties(
+                'selenide.baseUrl':'http://localhost:8123/',
+                'webdriver.chrome.driver': "Drivers/chromedriver.exe",
+                'selenide.browser': 'chrome',
+                'selenide.start.maximized': 'true',
+                'selenide.page-load-strategy':'normal',
+                'selenide.savePageSource': 'false',
+                'selenide.timeout':'6000',
+                'selenide.fileDownload': 'HTTPGET',
+                'selenide.fastSetValue':'true'
+        )
+}
+
+
