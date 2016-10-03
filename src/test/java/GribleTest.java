@@ -1,4 +1,4 @@
-import Pages.DataStorages;
+import Pages.Storages;
 import Pages.Home;
 import Pages.Product;
 import org.junit.Test;
@@ -11,10 +11,13 @@ public class GribleTest {
         home.open();
         String prodName = "Product"+ System.currentTimeMillis();
         home.addProduct(prodName);
+
         Product product = home.openProduct(prodName);
-        DataStorages ds = product.openDataStorages();
+        Storages storages = product.openDataStorages();
+
         String catName = "Product"+ System.currentTimeMillis();
-        ds.addCategory(catName);
+        storages.addCategory(catName);
+        storages.addStorage(catName, catName+"stor");
 
     }
 

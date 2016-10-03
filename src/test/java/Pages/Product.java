@@ -5,9 +5,9 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class Product {
 
-    public DataStorages openDataStorages(){
+    public Storages openDataStorages(){
         $(byText("Data Storages")).click();
-        return new DataStorages();
+        return new Storages();
     }
 
 }

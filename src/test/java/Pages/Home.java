@@ -17,7 +17,7 @@ public class Home {
         $(".product-name").setValue(name);
         $(".product-path").setValue(name);
         $("#dialog-btn-add-product").click();
-        new ConfirmationDialog().createDirectory();
+        new ConfirmationDialog().confirm();
     }
 
     public Product openProduct(String name) {

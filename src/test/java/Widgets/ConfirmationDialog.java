@@ -8,7 +8,7 @@ public class ConfirmationDialog {
 
     private SelenideElement widget = $("#noty_top_layout_container");
 
-    public void createDirectory(){
+    public void confirm(){
         widget.$(".btn-primary").click();
     }
 
